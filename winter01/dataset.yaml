@@ -1,0 +1,16 @@
+names:
+- painter
+- cipher machine
+- antique merchant
+- lizard
+- prospector
+- wax sculptor
+- painting
+- mercenary
+- priest
+- lawyer
+- little girl
+- acrobat
+nc: 12
+train: /mnt/e/BIpedX/第三周任务提交/Image_training_dataset/images/train
+val: /mnt/e/BIpedX/第三周任务提交/Image_training_dataset/images/val

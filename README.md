@@ -1,7 +1,7 @@
 # BipedX
 ## winter01
 ### About
-寒假第1-2周学习内容总结
+寒假第学习内容总结（持续更新）
 ### Dependencies
 Python库：Numpy，Matplotlib,pandas
 Ubuntu20.04（WSL）：ROS
@@ -36,9 +36,6 @@ git
   - C++工程文件结构
     - 说明：
       - 同理这一块之前有过基础，但是还是对.c和.h的职能内容有点分不清
-  - 仿真环境搭建
-    - 说明：
-      - 目前的进度是下了ROS，仅此而已，而且之后要住院有一段时间不能碰电脑，so第三周估计等过年才能够补上进度（）
   - Opencv的使用
     - 目录：./Opencv
     - 说明：

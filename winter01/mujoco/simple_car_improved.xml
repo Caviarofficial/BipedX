@@ -1,0 +1,57 @@
+<mujoco model="simple_car_improved">
+  <compiler angle="radian" coordinate="local"/>
+
+  <option timestep="0.002" gravity="0 0 -9.81" iterations="50" solver="Newton"/>
+
+  <default>
+    <joint type="hinge" axis="0 1 0" damping="0.5" armature="0.01"/>
+    <!-- 车轮几何：圆柱体半径 0.1，半长 0.04（即总长 0.08） -->
+    <geom type="cylinder" size="0.1 0.04" friction="1.0 0.1 0.1" condim="4" rgba="0.2 0.2 0.2 1"/>
+    <!-- 错误：motor 元素不支持 ctrltype，且已在下方的 actuator 中正确定义，因此这里注释掉 -->
+    <!-- <motor ctrlrange="-10 10" gear="1" ctrltype="1"/> -->
+  </default>
+
+  <worldbody>
+    <!-- 地面和灯光 -->
+    <light name="light0" pos="0 0 3" dir="0 0 -1"/>
+    <geom name="floor" type="plane" size="2 2 0.1" rgba="0.8 0.9 0.8 1" friction="1.0 0.1 0.1"/>
+
+    <!-- 车身 -->
+    <body name="chassis" pos="0 0 0.1">
+      <inertial pos="0 0 0" mass="1.0" diaginertia="0.01 0.02 0.01"/>
+      <geom name="chassis_geom" type="box" size="0.2 0.1 0.05" rgba="0.3 0.5 0.8 1"/>
+
+      <!-- 左前轮 (LF) -->
+      <body name="wheel_lf" pos="0.15 0.15 0">
+        <joint name="wheel_lf_joint"/>
+        <geom name="wheel_lf_geom" fromto="0 -0.04 0 0 0.04 0" rgba="0.1 0.1 0.1 1"/>
+      </body>
+
+      <!-- 右前轮 (RF) -->
+      <body name="wheel_rf" pos="0.15 -0.15 0">
+        <joint name="wheel_rf_joint"/>
+        <geom name="wheel_rf_geom" fromto="0 -0.04 0 0 0.04 0" rgba="0.1 0.1 0.1 1"/>
+      </body>
+
+      <!-- 左后轮 (LB) -->
+      <body name="wheel_lb" pos="-0.15 0.15 0">
+        <joint name="wheel_lb_joint"/>
+        <geom name="wheel_lb_geom" fromto="0 -0.04 0 0 0.04 0" rgba="0.1 0.1 0.1 1"/>
+      </body>
+
+      <!-- 右后轮 (RB) -->
+      <body name="wheel_rb" pos="-0.15 -0.15 0">
+        <joint name="wheel_rb_joint"/>
+        <geom name="wheel_rb_geom" fromto="0 -0.04 0 0 0.04 0" rgba="0.1 0.1 0.1 1"/>
+      </body>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <!-- 速度控制执行器（直接设定目标角速度） -->
+    <velocity name="lf_motor" joint="wheel_lf_joint" ctrlrange="-10 10"/>
+    <velocity name="rf_motor" joint="wheel_rf_joint" ctrlrange="-10 10"/>
+    <velocity name="lb_motor" joint="wheel_lb_joint" ctrlrange="-10 10"/>
+    <velocity name="rb_motor" joint="wheel_rb_joint" ctrlrange="-10 10"/>
+  </actuator>
+</mujoco>

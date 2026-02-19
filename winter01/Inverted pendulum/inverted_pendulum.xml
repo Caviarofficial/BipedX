@@ -1,0 +1,29 @@
+<mujoco model="inverted pendulum">
+  <compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
+  <option timestep="0.01" gravity="0 0 -9.81"/>
+
+  <worldbody>
+    <!-- 滑轨 (固定) -->
+    <geom name="rail" type="box" size="3.0 0.1 0.05" pos="0 0 0" rgba="0.5 0.5 0.5 1"/>
+
+    <!-- 小车 -->
+    <body name="cart" pos="0 0 0.05">
+      <joint name="slider" type="slide" axis="1 0 0" limited="true" range="-2.5 2.5" damping="0.1"/>
+      <geom name="cart_geom" type="box" size="0.2 0.15 0.1" pos="0 0 0" rgba="0 0.8 0 1"/>
+      <!-- 摆杆转轴 -->
+      <body name="pole_axis" pos="0 0 0.15">
+        <joint name="hinge" type="hinge" axis="0 1 0" damping="0.01"/>
+        <geom name="pole" type="capsule" fromto="0 0 0 0 0 0.5" size="0.02" rgba="1 0 0 1"/>
+      </body>
+    </body>
+
+    <!-- 目标标记（可选） -->
+    <body name="target" pos="0 0 0.5">
+      <geom name="target_sphere" type="sphere" size="0.05" rgba="0 0 1 0.5"/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="cart_motor" joint="slider" ctrlrange="-100 100" gear="100"/>
+  </actuator>
+</mujoco>

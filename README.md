@@ -3,9 +3,13 @@
 ### About
 寒假第学习内容总结（持续更新）
 ### Dependencies
-Python库：Numpy，Matplotlib,pandas
-Ubuntu20.04（WSL）：ROS
-git
+Python库：Numpy，Matplotlib,pandas  
+Ubuntu20.04（WSL）与ROS2  
+YOLOv8  
+Opencv  
+mujoco
+git  
+MatLab
 ### Project Structure
 - Linux命令与Terminal操作 (grep, ssh, pipe)
   - 目录：./Linux_command_guides
@@ -56,4 +60,26 @@ git
        - 说明：
          - 把台大机器人运动学的视频推完了正运动学部分，逆运动学暂时用不上就不看了，目前基本上能够熟练运动旋转矩阵转姿态，齐次矩阵的姿态描述了。
          - 从实际结构中抽象出正运动学的参数，列表，带值计算并最终得出从到第n个关节相对于第0个关节的位姿阵的这个过程已经相当熟悉
+  - 倒立摆模型
+        - 目录：./Inverted pendulum
+        - 说明:
+          - 一个比较简单易理解的模型.....用py仿真模拟了一下，用PID对其进行控制，顺便复习了一手PID
+          - 貌似倒立摆能用LPR控制，LPR之前有所耳闻，然鹅并没有学，以后有时间了马上补上
+  - ROS2的学习
+        - 目录：./ROS2
+        - 说明：
+          - 之前就有接触过ROS的一些概念，目前进行了全面的学习，差不多能掌握ROS的基本概念，从node到launch这些的
+          - ROS软件目前没跑过，因为本人要换电脑了调好的环境实在不想再去调一次，争取尽快把电脑换完然后把软件什么的全部补上
+          - 总的来说ROS2这块欠缺实践经验是真的
+  - 简单的二连杆
+        - 目录：./Derivation_of_two-link_coordinate_system
+        - 说明：
+          - 这块其实没啥好说的，就是一个普通的正运动学的应用，具体的正运动学的学习成果放在./kinematics里面了
+          - 还做了一个最典型的PUMA560的正运动学矩阵推导放在外边了
+  - 正运动学的好例子——PUMA560
+        - 目录：./PUMA560
+        - 说明：
+            - 非常典型和常用的PUMA560机器人，可以实现夹爪伸到球形空间内任意一点任意姿态
+            - 有一个MATLAB文件，功能是输入PUMA560六大参数（六个θ角），输出末端夹爪相对于世界系的齐次矩阵
+  
 

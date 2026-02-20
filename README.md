@@ -7,7 +7,7 @@ Python库：Numpy，Matplotlib,pandas
 Ubuntu20.04（WSL）与ROS2  
 YOLOv8  
 Opencv  
-mujoco
+mujoco  
 git  
 MatLab
 ### Project Structure
@@ -72,14 +72,14 @@ MatLab
         - ROS软件目前没跑过，因为本人要换电脑了调好的环境实在不想再去调一次，争取尽快把电脑换完然后把软件什么的全部补上
         - 总的来说ROS2这块欠缺实践经验是真的
   - 简单的二连杆
-        - 目录：./Derivation_of_two-link_coordinate_system
-        - 说明：
-          - 这块其实没啥好说的，就是一个普通的正运动学的应用，具体的正运动学的学习成果放在./kinematics里面了
-          - 还做了一个最典型的PUMA560的正运动学矩阵推导放在外边了
+    - 目录：./Derivation_of_two-link_coordinate_system
+    - 说明：
+       - 这块其实没啥好说的，就是一个普通的正运动学的应用，具体的正运动学的学习成果放在./kinematics里面了
+       - 还做了一个最典型的PUMA560的正运动学矩阵推导放在外边了
    - 正运动学的好例子——PUMA560
-        - 目录：./PUMA560
-        - 说明：
-            - 非常典型和常用的PUMA560机器人，可以实现夹爪伸到球形空间内任意一点任意姿态
-            - 有一个MATLAB文件，功能是输入PUMA560六大参数（六个θ角），输出末端夹爪相对于世界系的齐次矩阵
+       - 目录：./PUMA560
+       - 说明：
+           - 非常典型和常用的PUMA560机器人，可以实现夹爪伸到球形空间内任意一点任意姿态
+           - 有一个MATLAB文件，功能是输入PUMA560六大参数（六个θ角），输出末端夹爪相对于世界系的齐次矩阵
   
 
